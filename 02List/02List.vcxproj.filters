@@ -21,10 +21,10 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="List.h">
+    <ClInclude Include="List.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ListNode.h">
+    <ClInclude Include="ListNode.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,12 +33,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="List.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ListNode.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

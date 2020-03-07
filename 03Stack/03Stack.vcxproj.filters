@@ -21,10 +21,10 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Stack_V.h">
+    <ClInclude Include="Stack_List.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Stack_L.h">
+    <ClInclude Include="Stack_Vector.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

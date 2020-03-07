@@ -1,34 +1,104 @@
-#include "Vector.h"
+#pragma once
+#define DEBUG
 #include <iostream>
 #include <cstdlib>
 using std::cin;
 using std::cout;
 using std::endl;
 
+using Rank = int;
+const int DEFAULT_CAPCITY = 3;
+
+template <typename T> class Vector 
+{
+protected:
+	Rank _size;	int _capacity;	T* _elem;
+	void copyFrom(T const* A, Rank lo, Rank hi);
+	void expand();
+	void shrink();
+	Rank max(Rank lo, Rank hi);
+	Rank max() { return max(0, _size); }
+
+	bool bubble(Rank lo, Rank hi);
+	void bubbleSort(Rank lo, Rank hi);
+	void merge(Rank lo, Rank mi, Rank hi);
+	void mergeSort(Rank lo, Rank hi);
+	//void selectionSort(Rank lo, Rank hi);
+	//Rank partition(Rank lo, Rank hi);
+	//void quickSort(Rank lo, Rank hi);
+	//void heapSort(Rank lo, Rank hi);
+public:
+	// 构造函数
+	Vector(int c = DEFAULT_CAPCITY, int s = 0, int v = 0) {
+		_elem = new T[_capacity = c];
+		for (_size = 0; _size < s; _elem[_size++] = v);
+	}
+	Vector(T* const A, Rank n) { copyFrom(A, 0, n); }
+	Vector(T* const A, Rank lo, Rank hi) { copyFrom(A, lo, hi); }
+	Vector(Vector const& V) { copyFrom(V._elem, 0, V._size); }
+	Vector(Vector const& V, Rank lo, Rank hi) { copyFrom(V._elem, lo, hi); }
+	//destructor
+	~Vector() { delete[] _elem; }
+
+	//只读接口
+#ifdef DEBUG
+	void printElem()const;
+	int get_size_capacity()const;
+#endif // DEBUG
+	Rank size()const { return _size; }
+	bool empty()const { return !_size; }
+	int disordered()const;
+	Rank find(T const& e, Rank lo, Rank hi) const; // 无序查找
+	Rank find(T const& e)const { return find(e, 0, _size); }
+	Rank search(T const& e, Rank lo, Rank hi) const; // 有序查找
+	Rank search(T const& e)const {
+		return (0 >= _size) ? -1 : search(e, 0, _size);
+	}
+
+	//可写接口
+	T& operator[](Rank t)const;
+	Vector<T> & operator=(Vector<T> const& t);
+	int remove(Rank lo, Rank hi);
+	int remove(Rank r) { return remove(r, r + 1); }
+	Rank insert(Rank r, T const& e);
+	Rank insert(T const& e) { return insert(_size, e); }//默认在末尾插入
+	int deduplicate();
+	int uniquify();
+	void sort(Rank lo, Rank hi);
+	void sort() { sort(0, _size); };
+	void unsort(Rank lo, Rank hi);
+	void unsort() { unsort(0, _size); };
+
+	//遍历 函数指针、函数对象
+	void traverse(void(*visit)(T&));
+	template <typename VST> void traverse(VST&);
+};
+
 template <typename T>
 void Vector<T>::copyFrom(T const* A, Rank lo, Rank hi) {
 	_elem = new T[_capacity = (hi - lo) * 2];
 	_size = 0;
-	while (lo < hi)
+	while (lo < hi) {
 		_elem[_size++] = A[lo++];
+	}
 }
 
-//
+// 调试所使用的输出
+#ifdef DEBUG
 template <typename T>
-void Vector<T>::print()const {
+void Vector<T>::printElem()const {
 	cout << "The elements of the Vector:" << endl;
 	for (int i = 0; i < _size; i++)
-		cout << _elem[i] << " ";
+		cout << i << "\t" << _elem[i] << "\n";
 	cout << endl;
 }
-
 template <typename T>
 int Vector<T>::get_size_capacity()const {
 	cout << "The size of the Vector: " << _size << endl;
 	cout << "The capacity of the Vector: " << _capacity << endl;
 	return _capacity;
 }
-
+#endif // DEBUG
 
 template <typename T>
 void Vector<T>::expand() {
@@ -73,7 +143,7 @@ Vector<T>& Vector<T>::operator=(Vector<T> const& v) {
 
 template <typename T>
 int Vector<T>::remove(Rank lo, Rank hi) {
-	while (hi <_size) _elem[lo++] = _elem[hi++];
+	while (hi < _size) _elem[lo++] = _elem[hi++];
 	_size = lo; shrink();
 	return (hi - lo);
 }
@@ -109,7 +179,7 @@ void Vector<T>::traverse(void(*visit)(T&)) {
 }
 
 template<typename T> template<typename VST>
-void Vector<T>::traverse(VST & visit)
+void Vector<T>::traverse(VST& visit)
 {
 	for (int i = 0; i < _size; i++)
 		visit(_elem[i]);
