@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "BinTree.cpp"
+#include "BinTree.hpp"
 using namespace std;
 
 template<typename T>
@@ -10,7 +10,7 @@ struct increase {
 const int TEST_SIZE = 7;
 
 int main() {
-	BinTree<int> T; BNPosi(int) x = nullptr;
+	BinTree<int> T; BNPosi<int> x = nullptr;
 	int pre[] = { 1,2,4,7,5,3,6 };
 	int in[] = { 4,7,2,5,1,6,3 };
 	int post[] = { 7,4,5,2,6,3,1 };

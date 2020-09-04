@@ -29,7 +29,7 @@ protected:
 	//void heapSort(Rank lo, Rank hi);
 public:
 	// ¹¹Ôìº¯Êý
-	Vector(int c = DEFAULT_CAPCITY, int s = 0, int v = 0) {
+	Vector(int c = DEFAULT_CAPCITY, int s = 0, T v = 0) {
 		_elem = new T[_capacity = c];
 		for (_size = 0; _size < s; _elem[_size++] = v);
 	}
@@ -102,7 +102,7 @@ int Vector<T>::get_size_capacity()const {
 
 template <typename T>
 void Vector<T>::expand() {
-	if (_capacity <= DEFAULT_CAPCITY) return;
+	if (_capacity < DEFAULT_CAPCITY) return;
 	if (_capacity < _size << 1) return;
 	T* oldElem = _elem;
 	_elem = new T[_capacity <<= 1];

@@ -1,5 +1,8 @@
-#include "Random.h"
 #include "stdafx.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
 void Randomize() {
 	srand((unsigned int)time(NULL));
@@ -13,7 +16,7 @@ int GenerateRandomNumber(int low, int high) {
 		exit(1);
 	}
 	_d = (double)rand() / ((double)RAND_MAX);
-	return (low + (int)(_d*(high - low + 1)));
+	return (low + (int)(_d * (high - low + 1)));
 }
 
 double GenerateRandomReal(double low, double high) {

@@ -1,6 +1,6 @@
 #pragma once
-#include "../BinaryTree/BinNode.cpp"
-#include "../Vector/Vector.cpp"
+#include "../BinaryTree/BinNode.hpp"
+#include "../Vector/Vector.hpp"
 
 template <typename T>
 struct BTNode{ // B-Ê÷½Úµã

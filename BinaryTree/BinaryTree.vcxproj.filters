@@ -21,13 +21,13 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BinNode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BinTree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="BinNode_macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinNode.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinTree.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,12 +36,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BinNode.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BinTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

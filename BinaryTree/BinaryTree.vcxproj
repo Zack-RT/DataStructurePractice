@@ -148,15 +148,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BinNode.h" />
+    <ClInclude Include="BinNode.hpp" />
     <ClInclude Include="BinNode_macro.h" />
-    <ClInclude Include="BinTree.h" />
+    <ClInclude Include="BinTree.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BinNode.cpp" />
-    <ClCompile Include="BinTree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -4,7 +4,7 @@
 template<typename T>
 class Stack : public List<T> {
 public:
-	Rank push(T const& e) { List<T>::insertAsLast(e); }
+	void push(T const& e) { List<T>::insertAsLast(e); }
 	void pop() { List<T>::remove(last()); }
-	T& top() { List<T>::last()->ListNode<T>::data; }
+	T& top() { return List<T>::last()->ListNode<T>::data; }
 };

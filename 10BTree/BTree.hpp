@@ -1,6 +1,6 @@
 #pragma once
 #include "BTNode.hpp"
-#include "../07BST/BST.cpp"
+#include "../07BST/BST.h"
 // 平衡的多路搜索树
 
 template <typename T> using BTPosi = BTNode<T>*;
@@ -33,3 +33,4 @@ BTPosi<T> BTree<T>::search(const T& e) {
 	}
 	return nullptr; // 查找失败
 }
+

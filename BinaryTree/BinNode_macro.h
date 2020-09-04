@@ -27,3 +27,7 @@
 #define AvlBalanced(x) ((-2 < BalFac(x)) && (BalFac(x) < 2))		//是否平衡
 //更高的孩子节点，等高返回左孩子
 #define tallerChild(p) (stature( (p)->rchild ) > stature( (p)->lchild ) ? (p)->rchild : (p)->lchild )
+
+// 红黑树
+#define IsBlack(x) ((x)->color == BLACK ? true : false)
+#define IsRed(x) ((x)->color == RED ? true : false)
